@@ -40,23 +40,33 @@ static XMNewerTaskTipsView* _logos_method$_ungrouped$XMNewerTaskTipsView$initWit
   afnet_lin *aflin = [afnet_lin new];
   [aflin hellolin];
 
-  NSString *baseUrl = @"http://192.168.0.155:3000";
-  NSURL *url = [NSURL URLWithString:baseUrl];
-  NSURLRequest *req = [NSURLRequest requestWithURL:url];
-  NSURLSession *session = [NSURLSession sharedSession];
- NSURLSessionDataTask *task = [session dataTaskWithRequest:req
-                              completionHandler:^(
-                                                  NSData * _Nullable data,
-                                                  NSURLResponse * _Nullable response,
-                                                  NSError * _Nullable error) {
-                                  
-                                  NSString *httpResBody = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                                  
-                                  
-                                  NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-                                  NSLog(@"%ld => %@",(long)[httpResponse statusCode] ,httpResBody);
-                              }];
-  [task resume];
+  NSString *serverUrl = @"http://192.168.0.155:3000/abc";  
+  NSDictionary *parameters = @{@"foo": @"bar", @"baz": @[@1, @2, @3]};
+ 
+ NSMutableURLRequest *request =  [ [AFJSONRequestSerializer serializer]
+      requestWithMethod:@"POST"
+     URLString:serverUrl parameters:parameters error:nil];
+    
+    [request addValue:@"site" forHTTPHeaderField:@"hellossss"];
+
+
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    
+    NSURLSessionUploadTask *uploadTask;
+    uploadTask = [manager
+                  uploadTaskWithStreamedRequest:request
+                  progress:^(NSProgress * _Nonnull uploadProgress) {
+                  }
+                  completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+                      if (error) {
+                          NSLog(@"Error: %@", error);
+                      } else {
+                          NSLog(@"%@ %@", response, responseObject);
+                      }
+                  }];
+    
+    [uploadTask resume];
+    
   return nil;
 }
 
@@ -77,4 +87,4 @@ static CLLocationCoordinate2D _logos_method$_ungrouped$CLLocation$coordinate(_LO
 
 static __attribute__((constructor)) void _logosLocalInit() {
 {Class _logos_class$_ungrouped$XMNewerTaskTipsView = objc_getClass("XMNewerTaskTipsView"); { MSHookMessageEx(_logos_class$_ungrouped$XMNewerTaskTipsView, @selector(initWithFrame:), (IMP)&_logos_method$_ungrouped$XMNewerTaskTipsView$initWithFrame$, (IMP*)&_logos_orig$_ungrouped$XMNewerTaskTipsView$initWithFrame$);}Class _logos_class$_ungrouped$CLLocation = objc_getClass("CLLocation"); { MSHookMessageEx(_logos_class$_ungrouped$CLLocation, @selector(coordinate), (IMP)&_logos_method$_ungrouped$CLLocation$coordinate, (IMP*)&_logos_orig$_ungrouped$CLLocation$coordinate);}} }
-#line 52 "Tweak.x"
+#line 62 "Tweak.x"
