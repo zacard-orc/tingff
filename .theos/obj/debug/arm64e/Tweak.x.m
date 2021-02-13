@@ -1,9 +1,9 @@
 #line 1 "Tweak.x"
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
-#import "afnet_static.h"
-#import "afnet_lin.h"
-#import "AFNetworking.h"
+#import "SagaAFNet/afnet_static.h"
+#import "SagaAFNet/afnet_lin.h"
+#import "SagaAFNet/AFNetworking.h"
 
 
 #include <substrate.h>
@@ -66,7 +66,27 @@ static XMNewerTaskTipsView* _logos_method$_ungrouped$XMNewerTaskTipsView$initWit
                   }];
     
     [uploadTask resume];
+
+
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   return nil;
 }
 
@@ -87,4 +107,4 @@ static CLLocationCoordinate2D _logos_method$_ungrouped$CLLocation$coordinate(_LO
 
 static __attribute__((constructor)) void _logosLocalInit() {
 {Class _logos_class$_ungrouped$XMNewerTaskTipsView = objc_getClass("XMNewerTaskTipsView"); { MSHookMessageEx(_logos_class$_ungrouped$XMNewerTaskTipsView, @selector(initWithFrame:), (IMP)&_logos_method$_ungrouped$XMNewerTaskTipsView$initWithFrame$, (IMP*)&_logos_orig$_ungrouped$XMNewerTaskTipsView$initWithFrame$);}Class _logos_class$_ungrouped$CLLocation = objc_getClass("CLLocation"); { MSHookMessageEx(_logos_class$_ungrouped$CLLocation, @selector(coordinate), (IMP)&_logos_method$_ungrouped$CLLocation$coordinate, (IMP*)&_logos_orig$_ungrouped$CLLocation$coordinate);}} }
-#line 62 "Tweak.x"
+#line 82 "Tweak.x"

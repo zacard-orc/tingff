@@ -9,8 +9,8 @@ include $(THEOS)/makefiles/common.mk
 TWEAK_NAME = tingff
 
 tingff_FILES = Tweak.x a.x
-tingff_CFLAGS = -fobjc-arc -I./afnet_static/headers
-tingff_LDFLAGS = -L./afnet_static -lafnet_static
+tingff_CFLAGS = -fobjc-arc -I./3rd/SagaAFNet -I./3rd/SagaZip
+tingff_LDFLAGS = -L./3rd/SagaAFNet -lafnet_static -L./3rd/SagaZip -lSagaZip
 
 
 include $(THEOS_MAKE_PATH)/tweak.mk

@@ -1,8 +1,8 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
-#import "afnet_static.h"
-#import "afnet_lin.h"
-#import "AFNetworking.h"
+#import "SagaAFNet/afnet_static.h"
+#import "SagaAFNet/afnet_lin.h"
+#import "SagaAFNet/AFNetworking.h"
 
 %hook XMNewerTaskTipsView
 
