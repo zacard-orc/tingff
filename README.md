@@ -12,8 +12,7 @@ make install
 ```
 
 # feature
-```text
-:tada: support 3rd party  
-:tada: support multi file 
-:tada: use afnetworking、swizzle method、sszip、fishhook tools
-```
+:tada: support 3rd party   
+:tada: support multi file   
+:tada: use afnetworking、swizzle method、sszip、fishhook tools  
+
